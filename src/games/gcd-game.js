@@ -23,8 +23,8 @@ const gcd = (arr) => {
 const gcdGame = () => {
   const condition = 'Find the greatest common divisor of given numbers.';
   const expression = () => {
-    const num1 = Math.floor(Math.random() * 100);
-    const num2 = Math.floor(Math.random() * 100);
+    const num1 = Math.floor(Math.random() * 100) + 1;
+    const num2 = Math.floor(Math.random() * 100) + 1;
     return `${num1} ${num2}`;
   };
   const checkResult = (str) => gcd(stringToNumbersArr(str));
