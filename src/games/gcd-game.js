@@ -1,17 +1,3 @@
-const stringToNumbersArr = (str) => {
-  const numbers = [];
-  let currentNum = '';
-  for (let i = 0; i <= str.length; i += 1) {
-    if (str[i] === ' ' || i === str.length) {
-      numbers.push(Number(currentNum));
-      currentNum = '';
-    } else {
-      currentNum += str[i];
-    }
-  }
-  return numbers;
-};
-
 const gcd = (arr) => {
   const [a, b] = arr.sort((x, y) => y - x);
   if (a % b === 0) {
@@ -22,13 +8,21 @@ const gcd = (arr) => {
 
 const gcdGame = () => {
   const condition = 'Find the greatest common divisor of given numbers.';
+
   const expression = () => {
-    const num1 = Math.floor(Math.random() * 100) + 1;
-    const num2 = Math.floor(Math.random() * 100) + 1;
+    const num1 = Math.floor(Math.random() * (100 - 1) + 1);
+    const num2 = Math.floor(Math.random() * (100 - 1) + 1);
     return `${num1} ${num2}`;
   };
-  const checkResult = (str) => gcd(stringToNumbersArr(str));
-  return [condition, expression, checkResult];
+
+  const check = (expr, answer) => {
+    const numbers = expr.split(' ').map(Number);
+    const correctAnswer = gcd(numbers);
+    const checkResult = correctAnswer === Number(answer);
+    return [correctAnswer, checkResult];
+  };
+
+  return [condition, expression, check];
 };
 
 export default gcdGame;
