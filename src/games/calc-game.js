@@ -11,9 +11,13 @@ const calcGame = () => {
     const operand = _.sample(operands);
     return `${num1} ${operand} ${num2}`;
   };
-  const checkResult = (str) => evaluate(str);
+  const check = (exrp, answer) => {
+    const correctAnswer = evaluate(exrp);
+    const checkResult = correctAnswer === Number(answer);
+    return [correctAnswer, checkResult];
+  };
 
-  return [condition, expression, checkResult];
+  return [condition, expression, check];
 };
 
 export default calcGame;
