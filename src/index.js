@@ -1,29 +1,26 @@
 /* eslint-disable no-console */
 /* eslint-disable  import/extensions */
-import readlineSync from 'readline-sync';
-import greeting from './cli.js';
+import * as cli from './cli.js';
 
 const startGame = (gameName) => {
   const [condition, expression, check] = gameName();
-  const name = greeting();
+  const name = cli.greeting();
 
-  console.log(condition);
+  cli.submitCondition(condition);
 
   for (let i = 0; i < 3; i += 1) {
     const currentQuestion = expression();
-    console.log(`Question: ${currentQuestion}`);
-    const customerAnswer = readlineSync.question('Your answer is: ');
+    cli.makeQuestion(currentQuestion);
+    const customerAnswer = cli.getAnswer();
     const [correctAnswer, checkResult] = check(currentQuestion, customerAnswer);
-
     if (!checkResult) {
-      console.log(`'${customerAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
-      console.log(`Let's try again, ${name}!`);
+      cli.wrongAnswer(customerAnswer, correctAnswer, name);
       return false;
     }
-    console.log('Correct!');
+    cli.correct();
   }
 
-  console.log(`Congratulations, ${name}!`);
+  cli.congratulations(name);
   return true;
 };
 
