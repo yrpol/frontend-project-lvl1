@@ -1,7 +1,3 @@
-### About:
-Set of small CLI games, implemented as part of the passing of a study project.
-
-
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/yrpol/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/yrpol/frontend-project-lvl1/actions)
 
@@ -10,7 +6,7 @@ Set of small CLI games, implemented as part of the passing of a study project.
 [![Actions Status](https://github.com/yrpol/frontend-project-lvl1/workflows/linter-check/badge.svg)](https://github.com/yrpol/frontend-project-lvl1/actions)
 
 
-### Demonstration:
+Demonstration:
 
 1. [Install and check](https://asciinema.org/a/oGHHRSmpfbJ4GnEqttFQMYCpv)
 2. [Brain-even game](https://asciinema.org/a/2utHsekdnwFazUdsss23MwLGl)
